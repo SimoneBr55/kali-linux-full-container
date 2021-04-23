@@ -20,5 +20,7 @@ RUN sed -i "s|#Port 22|Port 313|g" /etc/ssh/sshd_config
 RUN sed -i "s|#PermitRootLogin prohibit-password|PermitRootLogin yes|g" /etc/ss$
 RUN echo "root:root" | chpasswd
 RUN service ssh start
+COPY software_temp.tar /tmp/
+COPY opt.tar /opt/ 
 
 CMD "/bin/bash"
